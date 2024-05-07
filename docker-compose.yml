@@ -34,6 +34,8 @@ services:
     networks:
       - yolo-mongodb
       - yolo-client
+    depends_on:
+      - yolo-web-mongodb
     volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
