@@ -3,8 +3,9 @@
 FROM  node:16-alpine3.17  
 
 #client workdir
-WORKDIR /app/client
-
+WORKDIR /MyApp
+#The email address of the person responsible for maintaining this Dockerfile or image.
+LABEL maintainer="beniyemwangi@gmail.com"
 #copying client dependancies
 COPY package*.json ./
 
