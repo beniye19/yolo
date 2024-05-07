@@ -1,0 +1,50 @@
+version: '3.8'
+services: 
+  yolo-web-mongodb: 
+    image: mongo:latest
+    container_name: yolomongodb
+    ports: 
+      - 27017:27017
+    networks:
+      - yolo-mongodb 
+    volumes:
+      - yolo_mongodb_data:/data/db
+    restart: always
+    
+  yolo-web-client: 
+    image: beniye/yolo-web-client:v1.0.0
+    container_name: beniye/yolo-web-client
+    restart: always
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - yolo-web-mongodb
+    networks:
+      - yolo-client
+    ports: 
+      - 3000:3000
+    stdin_open: true
+    tty: true
+  
+  yolo-web-backend: 
+    image: beniye/yolo-web-backend:v1.0.0
+    ports:
+      - 5000:5000
+    networks:
+      - yolo-mongodb
+      - yolo-client
+
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+networks: 
+  yolo-mongodb:
+  yolo-client: 
+
+volumes:
+  yolo_mongodb_data:
+
+
+
+  
