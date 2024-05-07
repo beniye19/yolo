@@ -34,7 +34,6 @@ services:
     networks:
       - yolo-mongodb
       - yolo-client
-
     volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
@@ -44,6 +43,9 @@ networks:
 
 volumes:
   yolo_mongodb_data:
+
+
+  yugwefug
 
 
 
