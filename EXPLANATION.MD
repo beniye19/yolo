@@ -38,7 +38,10 @@ Explanation:
 **EXPOSE:** Exposes port 3000 from the container to the host, indicating that the client-side application inside the container is expected to be accessible on port 3000.
 
 **CMD:** Defines the default command to run when the container starts, running npm start, presumably to start the client-side application.
+
+
 # DOCKER COMPOSE NETWORKING
+
 Networks:
 
 `yolo-mongodb` Network: A custom bridge network created for communication between the MongoDB service and the backend service.
@@ -46,3 +49,18 @@ Networks:
 `yolo-client` Network: Another custom bridge network created for communication between the client service and the backend service.
 
 Overall, the Docker Compose file is designed to facilitate communication between the client-side application, backend server, and MongoDB database while ensuring reliable service startup and data persistence through appropriate port allocation, network configuration, volume mounting, and restart policies.
+
+# DOCKER COMPOSE VOLUMES
+
+1. MongoDB Service (yolo-web-mongodb):
+A volume named yolo_mongodb_data is defined to persist MongoDB data at /data/db.
+
+2. Client Service (yolo-web-client):
+The ./frontend directory from the host is mounted into the container's /usr/src/app directory.
+The /usr/src/app/node_modules directory is mounted to allow caching of dependencies between container restarts.
+
+3. Backend Service (yolo-web-backend):
+The ./backend directory from the host is mounted into the container's /usr/src/app directory.
+The /usr/src/app/node_modules directory is mounted to allow caching of dependencies between container restarts.
+
+These volumes enable persistence of MongoDB data and provide access to application code from the host within the containers, enhancing flexibility and data management capabilities in the Docker environment.
