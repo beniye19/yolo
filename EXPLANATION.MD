@@ -21,3 +21,13 @@ COPY . .
 EXPOSE 3000
 CMD ["npm", "start"] 
 ```
+Explanation:
+
+Base Image: It starts with the node:16-alpine3.17 image, which is a lightweight image based on Alpine Linux containing Node.js version 16.
+Working Directory: Sets the working directory inside the container to /MyApp.
+Maintainer Label: Adds a label specifying the email address of the person responsible for maintaining the Dockerfile or image.
+Copy Package Files: Copies package.json and package-lock.json (if present) from the host into the container's working directory.
+Install Dependencies: Runs npm ci --production to install production dependencies from package-lock.json, ensuring reproducible builds.
+Copy Project Files: Copies the rest of the project files from the host into the container's working directory.
+Expose Port: Exposes port 3000 from the container to the host, indicating that the client-side application inside the container is expected to be accessible on port 3000.
+Command: Defines the default command to run when the container starts, running npm start, presumably to start the client-side application.
