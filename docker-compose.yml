@@ -43,7 +43,3 @@ networks:
 
 volumes:
   yolo_mongodb_data:
-
-hqeag
-ad
-  
