@@ -1,6 +1,7 @@
 # Combined Dockerfile
 # Use multi-stage build for both backend and client
 FROM node:18-alpine3.17 AS builder
+LABEL maintainer="beniyemwangi@gmail.com"
 
 # Backend build stage
 WORKDIR /app/backend
