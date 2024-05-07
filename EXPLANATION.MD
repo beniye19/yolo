@@ -44,9 +44,9 @@ Explanation:
 
 Networks:
 
-`yolo-mongodb` Network: A custom bridge network created for communication between the MongoDB service and the backend service.
+**`yolo-mongodb`** Network: A custom bridge network created for communication between the MongoDB service and the backend service.
 
-`yolo-client` Network: Another custom bridge network created for communication between the client service and the backend service.
+**`yolo-client`** Network: Another custom bridge network created for communication between the client service and the backend service.
 
 Overall, the Docker Compose file is designed to facilitate communication between the client-side application, backend server, and MongoDB database while ensuring reliable service startup and data persistence through appropriate port allocation, network configuration, volume mounting, and restart policies.
 
