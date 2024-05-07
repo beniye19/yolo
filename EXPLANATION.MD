@@ -132,3 +132,8 @@ Good practices for Docker image tag naming standards help in ensuring clarity, c
 9. **Document Tagging Standards**: Document tagging standards and guidelines within the development team to ensure that all team members follow the same conventions.
 
 By following these practices, you can improve the clarity, consistency, and maintainability of Docker images and containers, making it easier to manage and deploy applications across different environments.
+
+# DOCKERHUB SCREENSHOT
+This screenshot from DockerHub displays a deployed image, showcasing its version tag. This version tag helps in identifying the specific version of the image being deployed, ensuring clarity and facilitating reproducibility in deployment processes.
+
+![DockerHub Screenshot showing Versioned images: Beniye](DockerHubSC.png)
