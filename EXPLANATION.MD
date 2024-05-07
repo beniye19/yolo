@@ -31,3 +31,8 @@ Install Dependencies: Runs npm ci --production to install production dependencie
 Copy Project Files: Copies the rest of the project files from the host into the container's working directory.
 Expose Port: Exposes port 3000 from the container to the host, indicating that the client-side application inside the container is expected to be accessible on port 3000.
 Command: Defines the default command to run when the container starts, running npm start, presumably to start the client-side application.
+# DOCKER COMPOSE NETWORKING
+Networks:
+'yolo-mongodb' Network: A custom bridge network created for communication between the MongoDB service and the backend service.
+'yolo-client' Network: Another custom bridge network created for communication between the client service and the backend service.
+Overall, the Docker Compose file is designed to facilitate communication between the client-side application, backend server, and MongoDB database while ensuring reliable service startup and data persistence through appropriate port allocation, network configuration, volume mounting, and restart policies.
