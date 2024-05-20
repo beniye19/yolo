@@ -39,4 +39,23 @@
         state: present
         restarted: yes
         pull: yes
-        remove_orphans:yes
+        remove_orphans
+
+        ---
+- name: Clone frontend repository
+  git:
+    repo: "{{ github_repo }}"
+    dest: "{{ project_dir }}"
+  tags: ['frontend']
+
+- name: Deploy frontend application
+  block:
+    - name: Start frontend container
+      docker_compose:
+        project_src: "{{ project_dir }}"
+        service: "yolo-web-client"
+        state: present
+        restarted: yes
+        pull: yes
+        remove_orphans: yes
+  tags: ['frontend']
