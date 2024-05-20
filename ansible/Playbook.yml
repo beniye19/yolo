@@ -24,5 +24,4 @@
 
 roles:
     - { role: mongodb, tags: ['db'] }roles:
-    - { role: mongodb, tags: ['db'] }
-    
+    - { role: mongodb, tags: ['db'
