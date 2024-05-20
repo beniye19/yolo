@@ -3,7 +3,6 @@
 ```plaintext
 
 yolo/
-├── Stage_two/ (Contains files)
 ├── ansible/
 │   ├── roles/
 │   │   ├── mongodb/
@@ -27,7 +26,7 @@ yolo/
 ├── README.MD
 ├── Ansible.EXPLANTION.MD
 ├── DockerHubSC.png
-├── EXPLANATION.MD
+├── DOCKER.EXPLANATION.MD
 ├── beniye-yolo-web-backend.png
 └── beniye-yolo-web-client.png
 
