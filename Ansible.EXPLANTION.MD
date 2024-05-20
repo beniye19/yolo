@@ -145,6 +145,3 @@ This role is executed after the MongoDB and frontend roles. The backend might in
 ## Conclusion
 
 The playbook’s sequential execution ensures a smooth deployment process by setting up necessary dependencies before the dependent components. The MongoDB role ensures the database is ready, the frontend role sets up the user interface that interacts with the database, and the backend role completes the setup by handling server-side operations that might involve both the frontend and the database. Each role uses specific Ansible modules to manage tasks efficiently, leveraging `apt` for package installation, `git` for code retrieval, `command` for running Docker commands, and `copy` for managing configuration files.
-```
-
-This Markdown document provides a detailed explanation of each role's function, positioning in the playbook, and the Ansible modules used in the tasks within each role.
