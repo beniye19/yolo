@@ -1,5 +1,5 @@
 ---
-- name: Deploy YOLO Node.js application with MongoDB
+- name: Deploy Node.js application with MongoDB
   hosts: all
   become: yes
 
@@ -16,12 +16,3 @@
     - { role: mongodb, tags: ['db'] }
     - { role: frontend, tags: ['frontend'] }
     - { role: backend, tags: ['backend'] }
-
-
-
-
-
-roles:
-    - { role: mongodb, tags: ['db'] }
-    - {'frontend'] }
-  
