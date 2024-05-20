@@ -31,12 +31,3 @@ my-nodejs-app/
 ├── docker-compose.yml
 ├── Vagrantfile
 └── README.MD
-```plaintext
-
-
-
-The order of execution in the Ansible playbook follows a logical sequence to ensure smooth deployment of the Node.js application with MongoDB. Here’s a more detailed breakdown of the reasoning behind the order: The playbook begins by loading variables from the `group_vars/all.yml` file. These variables are essential for configuring various aspects of the deployment, such as paths, repository URLs, and version numbers. Loading variables at the beginning ensures consistency and allows for easy management of configuration settings. Next, the pre-tasks section performs initial setup steps before executing the main roles. In this playbook, the primary pre-task is to ensure that Git is installed on all target virtual machines. Since the subsequent tasks involve cloning repositories from GitHub, having Git installed is a prerequisite. By installing Git as a pre-task, we guarantee that it is available before attempting to clone repositories. Following the pre-tasks, roles are executed to encapsulate sets of tasks related to specific components or functionalities of the deployment. This structure ensures a systematic approach to deployment, minimizing errors and ensuring a smooth setup process.
-
-```plaintext
-This is a plaintext section. You can use the blockquote syntax to denote plaintext sections in Markdown. It's useful for separating code snippets, commands, or any other non-formatted text from the rest of the document.
-
