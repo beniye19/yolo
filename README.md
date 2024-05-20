@@ -28,9 +28,8 @@ yolo/
 ├── docker-compose.yml
 ├── Vagrantfile
 ├── README.MD
-├── Ansible.EXPLANTION.MD
 ├── DockerHubSC.png
-├── EXPLANATION.MD
+├── DOCKER.EXPLANATION.MD
 ├── beniye-yolo-web-backend.png
 └── beniye-yolo-web-client.png
 
