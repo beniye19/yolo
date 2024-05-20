@@ -15,7 +15,6 @@ Before you begin, ensure you have the following software installed:
 ```plaintext
 
 yolo/
-├── Stage_two/ (Contains files)
 ├── ansible/
 │   ├── roles/
 │   │   ├── mongodb/
