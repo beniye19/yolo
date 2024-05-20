@@ -3,7 +3,6 @@
 ```plaintext
 
 yolo/
-├── Stage_two/ (Contains files)
 ├── ansible/
 │   ├── roles/
 │   │   ├── mongodb/
@@ -18,7 +17,11 @@ yolo/
 │   ├── group_vars/
 │   │   └── all.yml
 │   ├── hosts
-│   └── Playbook.yml
+│   ├── Playbook.yml
+│   ├── Stage_two/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
 ├── .vscode/ (Contains files)
 ├── backend/ (Contains files)
 ├── client/ (Contains files)
@@ -30,7 +33,6 @@ yolo/
 ├── EXPLANATION.MD
 ├── beniye-yolo-web-backend.png
 └── beniye-yolo-web-client.png
-
 
 ```
 
