@@ -39,4 +39,4 @@
         state: present
         restarted: yes
         pull: yes
-        remove_orphans: a
+        remove_orphans:yes
