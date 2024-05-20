@@ -11,8 +11,6 @@ Before you begin, ensure you have the following software installed:
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ## Directory Structure
-
-```plaintext
 my-nodejs-app/
 ├── ansible/
 │   ├── roles/
