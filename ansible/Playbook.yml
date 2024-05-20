@@ -1,7 +1,7 @@
 ---
 - name: Deploy YOLO Node.js application with MongoDB
   hosts: all
-  become: yes
+  become: no 
 
   vars_files:
     - group_vars/all.yml
