@@ -25,7 +25,4 @@
 roles:
     - { role: mongodb, tags: ['db'] }roles:
     - { role: mongodb, tags: ['db'] }
-    roles:
-    - { role: mongodb, tags: ['db'] }
-    - { role: frontend, tags: ['frontend'] }
-    - { role: backend, tags: ['backend'] }
+    
