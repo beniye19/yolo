@@ -59,3 +59,11 @@
     state: present
     restar
 
+- name: Run MongoDB container
+  docker_compose:
+    project_src: "{{ project_dir }}"
+    service: "yolo-web-mongodb"
+    state: present
+    restarted: yes
+    pull: yes
+  tags: ['db']
