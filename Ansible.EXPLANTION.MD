@@ -1,4 +1,4 @@
-# (A) <u>OVERVIEW<u>
+# (A) OVERVIEW
 
 This repository contains a Node.js application with a frontend and backend, as well as a MongoDB database. The application is containerized using Docker and Docker Compose. We use Vagrant and Ansible to automate the setup and deployment process on virtual machines.
 
@@ -36,7 +36,7 @@ my-nodejs-app/
 ```
 
 
-# (B) <u>ROLES AND FUNCTIONS<u>
+# (B) ROLES AND FUNCTIONS
 
 The Ansible playbook is structured to ensure a smooth and systematic deployment of the Node.js application with MongoDB. Each role is carefully positioned to handle specific components of the deployment process, leveraging various Ansible modules to accomplish their tasks. Here’s a detailed explanation of each role and the modules used:
 
@@ -146,7 +146,7 @@ This role is executed after the MongoDB and frontend roles. The backend might in
 
 The playbook’s sequential execution ensures a smooth deployment process by setting up necessary dependencies before the dependent components. The MongoDB role ensures the database is ready, the frontend role sets up the user interface that interacts with the database, and the backend role completes the setup by handling server-side operations that might involve both the frontend and the database. Each role uses specific Ansible modules to manage tasks efficiently, leveraging `apt` for package installation, `git` for code retrieval, `command` for running Docker commands, and `copy` for managing configuration files.
 
-# (C) <u>DATA PERSISTENCE<u>
+# (C) DATA PERSISTENCE
 
 The data should persist because the Docker Compose configuration includes a volume for MongoDB. Docker volumes ensure that data is stored outside of the container's filesystem, meaning it remains intact even if the container is stopped, removed, or recreated.
 When you restart the MongoDB container, it will use the same volume `(yolo_mongodb_data)`, and all the data previously stored in MongoDB will still be available.
