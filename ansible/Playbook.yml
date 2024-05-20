@@ -1,5 +1,5 @@
 ---
-- name: Deploy Node.js application with MongoDB
+- name: Deploy YOLO Node.js application with MongoDB
   hosts: all
   become: yes
 
