@@ -13,7 +13,9 @@ Before you begin, ensure you have the following software installed:
 ## Directory Structure
 
 ```plaintext
-my-nodejs-app/
+
+yolo/
+├── Stage_two/ (Contains files)
 ├── ansible/
 │   ├── roles/
 │   │   ├── mongodb/
@@ -29,9 +31,18 @@ my-nodejs-app/
 │   │   └── all.yml
 │   ├── hosts
 │   └── Playbook.yml
+├── .vscode/ (Contains files)
+├── backend/ (Contains files)
+├── client/ (Contains files)
 ├── docker-compose.yml
 ├── Vagrantfile
-└── README.MD
+├── README.MD
+├── Ansible.EXPLANTION.MD
+├── DockerHubSC.png
+├── EXPLANATION.MD
+├── beniye-yolo-web-backend.png
+└── beniye-yolo-web-client.png
+
 
 ```
 
@@ -151,3 +162,11 @@ The playbook’s sequential execution ensures a smooth deployment process by set
 The data should persist because the Docker Compose configuration includes a volume for MongoDB. Docker volumes ensure that data is stored outside of the container's filesystem, meaning it remains intact even if the container is stopped, removed, or recreated.
 When you restart the MongoDB container, it will use the same volume `(yolo_mongodb_data)`, and all the data previously stored in MongoDB will still be available.
 
+.vscode
+backend/
+client/
+Ansible.EXPLANTION.MD
+DockerHubSC.png
+EXPLANATION.MD
+beniye-yolo-web-backend.png
+beniye-yolo-web-client.png
