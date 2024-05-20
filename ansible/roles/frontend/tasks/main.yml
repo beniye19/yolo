@@ -55,5 +55,4 @@
         project_src: "{{ project_dir }}"
         service: "yolo-web-client"
         state: present
-        restarted: yes
-        pull: false 
+        res
