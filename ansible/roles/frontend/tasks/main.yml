@@ -57,5 +57,4 @@
         state: present
         restarted: yes
         pull: yes
-        remove_orphans: yes
-  tags: ['frontend']
+        remove_orphans yes
