@@ -39,4 +39,4 @@
         state: present
         restarted: yes
         pull: yes
-        remove_orphans: adbtend']
+        remove_orphans: a
