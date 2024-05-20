@@ -1,23 +1,83 @@
-# Requirements
-Make sure that you have the following installed:
-- [node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04) 
-- npm 
-- [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) and start the mongodb service with `sudo service mongod start`
+# Installation Guide
 
-## Navigate to the Client Folder 
- `cd client`
+Before proceeding, ensure you have the following prerequisites installed:
 
-## Run the folllowing command to install the dependencies 
- `npm install`
+- [Node.js](https://nodejs.org/) 
+- npm (Node Package Manager)
+- [MongoDB](https://www.mongodb.com/try/download/community) 
 
-## Run the folllowing to start the app
- `npm start`
+## Step 1: Install Node.js and npm
 
-## Open a new terminal and run the same commands in the backend folder
- `cd ../backend`
+If you haven't already, install Node.js and npm by following the instructions [here](https://nodejs.org/).
 
- `npm install`
+## Step 2: Install MongoDB
 
- `npm start`
+Follow the instructions to [install MongoDB](https://docs.mongodb.com/manual/administration/install-community/) based on your operating system. Once installed, start the MongoDB service. For example, on Ubuntu, you can start the service with:
 
- ### Go ahead a nd add a product (note that the price field only takes a numeric input)
+```bash
+sudo service mongod start
+```
+
+## Step 3: Clone the Repository
+
+Clone the project repository from GitHub:
+
+```bash
+git clone https://github.com/your-repo-url.git
+```
+
+Replace `your-repo-url` with the actual URL of your repository.
+
+## Step 4: Navigate to Client Folder
+
+Navigate to the client directory of the project:
+
+```bash
+cd your-project-directory/client
+```
+
+## Step 5: Install Frontend Dependencies
+
+Run the following command to install the frontend dependencies:
+
+```bash
+npm install
+```
+
+## Step 6: Start the Frontend
+
+Start the frontend application:
+
+```bash
+npm start
+```
+
+## Step 7: Navigate to Backend Folder
+
+Open a new terminal window/tab, then navigate to the backend directory of the project:
+
+```bash
+cd your-project-directory/backend
+```
+
+## Step 8: Install Backend Dependencies
+
+Install the backend dependencies:
+
+```bash
+npm install
+```
+
+## Step 9: Start the Backend
+
+Start the backend server:
+
+```bash
+npm start
+```
+
+## Step 10: Add a Product
+
+Once both the frontend and backend are running, you can navigate to the application in your web browser and add a product. Note that the price field only accepts numeric input.
+
+---
