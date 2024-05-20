@@ -56,5 +56,4 @@
         service: "yolo-web-client"
         state: present
         restarted: yes
-        pull: yes
-        remove_orphans yes
+        pull: false 
