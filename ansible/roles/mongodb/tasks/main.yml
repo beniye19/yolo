@@ -54,7 +54,6 @@
 
 
 - name: Run MongoDB container
-  docker_compose:
-    project_src: "{{ project_dir }}"
+
 
  
