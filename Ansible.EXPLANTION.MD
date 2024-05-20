@@ -145,3 +145,8 @@ This role is executed after the MongoDB and frontend roles. The backend might in
 ## Conclusion
 
 The playbook’s sequential execution ensures a smooth deployment process by setting up necessary dependencies before the dependent components. The MongoDB role ensures the database is ready, the frontend role sets up the user interface that interacts with the database, and the backend role completes the setup by handling server-side operations that might involve both the frontend and the database. Each role uses specific Ansible modules to manage tasks efficiently, leveraging `apt` for package installation, `git` for code retrieval, `command` for running Docker commands, and `copy` for managing configuration files.
+
+## Data Persistence
+The data should persist because the Docker Compose configuration includes a volume for MongoDB. Docker volumes ensure that data is stored outside of the container's filesystem, meaning it remains intact even if the container is stopped, removed, or recreated.
+When you restart the MongoDB container, it will use the same volume `(yolo_mongodb_data)`, and all the data previously stored in MongoDB will still be available.
+
