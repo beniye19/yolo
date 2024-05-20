@@ -34,7 +34,7 @@
   block:
     - name: Start frontend container
       docker_compose:
-        project_src: "{{ project_dir }}"
+        project_src:
         service: "yolo-web-client"
         state: present
         restarted: yes
