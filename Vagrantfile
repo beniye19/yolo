@@ -8,4 +8,4 @@ Vagrant.configure("2") do |config|
       db.vm.network "private_network", type: "dhcp"
     end
   
-    c
+    
