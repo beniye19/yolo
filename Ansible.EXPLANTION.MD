@@ -1,4 +1,4 @@
-# ANSIBLE REAMDME
+# CONFIGURATION MANAGEMENT REAMDME
 
 This repository contains a Node.js application with a frontend and backend, as well as a MongoDB database. The application is containerized using Docker and Docker Compose. We use Vagrant and Ansible to automate the setup and deployment process on virtual machines.
 
