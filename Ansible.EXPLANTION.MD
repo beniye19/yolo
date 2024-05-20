@@ -63,6 +63,6 @@ The frontend role handles the deployment of the frontend application. It include
 
 Similar to the frontend role, the backend role deals with the deployment of the backend application. It clones the backend repository and deploys the backend container using Docker Compose. Like the frontend, the backend may interact with the MongoDB database, so it's deployed after ensuring that the database service is running.
 
-### Conclusion
+#### Conclusion
 
 The order of execution in the Ansible playbook follows a logical sequence to ensure smooth deployment of the Node.js application with MongoDB. By loading variables first, performing pre-installation tasks, and then executing roles in a specific order, we establish a robust foundation for deploying the application components. This approach minimizes errors, ensures dependencies are met, and sets up the environment for successful application deployment.
