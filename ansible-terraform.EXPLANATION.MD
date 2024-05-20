@@ -1,5 +1,40 @@
 
 ```markdown
+# Directory Structure
+
+yolo/
+├── ansible/
+│   ├── roles/
+│   │   ├── mongodb/
+│   │   │   └── tasks/
+│   │   │       └── main.yml
+│   │   ├── frontend/
+│   │   │   └── tasks/
+│   │   │       └── main.yml
+│   │   └── backend/
+│   │       └── tasks/
+│   │           └── main.yml
+│   ├── group_vars/
+│   │   └── all.yml
+│   ├── hosts
+│   ├── Playbook.yml
+│   ├── Stage_two/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+├── .vscode/ (Contains files)
+├── backend/ (Contains files)
+├── client/ (Contains files)
+├── docker-compose.yml
+├── Vagrantfile
+├── README.MD
+├── Ansible.EXPLANTION.MD
+├── DockerHubSC.png
+├── EXPLANATION.MD
+├── beniye-yolo-web-backend.png
+└── beniye-yolo-web-client.png
+
+
 # Explanation of the Infrastructure and Deployment Automation
 
 ## Overview
