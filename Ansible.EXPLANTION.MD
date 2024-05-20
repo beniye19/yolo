@@ -31,4 +31,4 @@ my-nodejs-app/
 │   └── Playbook.yml
 ├── docker-compose.yml
 ├── Vagrantfile
-└── README.md
+└── README.
