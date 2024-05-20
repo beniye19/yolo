@@ -60,4 +60,4 @@
     state: present
     restarted: yes
     pull: yes
-  tags:
+ 
