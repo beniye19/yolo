@@ -188,20 +188,13 @@ Here's a suitable `README.md` explaining the Ansible and Vagrant configuration m
 
 This project aims to automate the provisioning and configuration of an Ubuntu server using Vagrant and Ansible. The setup ensures that the e-commerce web application, which includes a MongoDB backend, a Node.js backend, and a React frontend, is fully operational with minimal manual intervention.
 
-## Objectives
-
-The project is divided into two main stages:
-
-1. **Stage 1: Ansible Instrumentation**
-2. **Stage 2: Automated Provisioning and Configuration**
-
-## Stage 1: Ansible Instrumentation
+## Ansible Instrumentation
 
 ### Environment Setup
 
 1. **Vagrant Provisioned Server**
    - We will use Vagrant to provision a virtual machine running the latest Ubuntu server.
-   - The Vagrant box used is `geerlingguy/ubuntu2004`, a lightweight and widely used Ubuntu 20.04 box.
+   - The Vagrant box used is `ubuntu/bionic64`, a lightweight and widely used Ubuntu 20.04 box.
 
 2. **Ansible Playbook**
    - Ansible is used to automate the configuration of the server.
@@ -238,21 +231,22 @@ The `Vagrantfile` is used to configure and provision the virtual machine:
 
 ```ruby
 Vagrant.configure("2") do |config|
-  config.vm.box = "geerlingguy/ubuntu2004"
-
-  config.vm.network "private_network", ip: "192.168.56.10"
-
-  config.vm.provider "virtualbox" do |vb|
-    vb.memory = "2048"
-    vb.cpus = 2
+  config.vm.define "web" do |web|
+    web.vm.box = "ubuntu/bionic64"
+    web.vm.network "private_network", ip: "192.168.56.101"
   end
 
-  config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get install -y python3 python3-pip
-    pip3 install ansible
-  SHELL
+  config.vm.define "db" do |db|
+    db.vm.box = "ubuntu/bionic64"
+    db.vm.network "private_network", ip: "192.168.56.102"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "ansible/Playbook.yml"
+    ansible.inventory_path = "ansible/hosts"
+  end
 end
+
 ```
 
 #### Ansible Playbook
@@ -261,16 +255,24 @@ The `Playbook.yml` defines the tasks to configure the server and deploy the appl
 
 ```yaml
 ---
-- name: Setup and deploy YOLO e-commerce application
+- name: Deploy YOLO Node.js application with MongoDB
   hosts: all
   become: yes
+
   vars_files:
     - group_vars/all.yml
 
+  pre_tasks:
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+
   roles:
-    - mongodb
-    - backend
-    - frontend
+    - { role: mongodb, tags: ['db'] }
+    - { role: frontend, tags: ['frontend'] }
+    - { role: backend, tags: ['backend'] }
+
 ```
 
 #### Roles
@@ -292,51 +294,50 @@ The `group_vars/all.yml` file defines variables used in the playbook:
 
 ```yaml
 mongodb_port: 27017
-backend_port: 3000
-frontend_port: 3001
+backend_port: 5000
+frontend_port: 3000
 ```
 
 ### Task Files
 
-Each role has a `main.yml` file that lists the tasks to be executed. For example, the `mongodb/main.yml`:
+Each role has a `main.yml` file that lists the tasks to be executed. For example, the `backend/main.yml`:
 
 ```yaml
 ---
-- name: Install MongoDB
-  apt:
-    name: mongodb
-    state: present
+- name: Clone backend repository
+  git:
+    repo: "{{ github_repo }}"
+    dest: "{{ project_dir }}"
+  tags: ['backend']
 
-- name: Start MongoDB
-  service:
-    name: mongodb
-    state: started
-    enabled: yes
+- name: Deploy backend application
+  block:
+    - name: Start backend container
+      docker_compose:
+        project_src: "{{ project_dir }}"
+        service: "yolo-web-backend"
+        state: present
+        restarted: yes
+        pull: yes
+        remove_orphans: yes
+  tags: ['backend']
+
 ```
 
 ### Running the Setup
 
-1. **Provision the VM:**
-   - Run `vagrant up` to provision the VM and install Ansible.
+   **Provision the VM:**
+- Run vagrant up in your project root directory. This command will start the Vagrant virtual machine and automatically run the Ansible playbook to configure the server.
 
-2. **Execute Ansible Playbook:**
-   - SSH into the VM using `vagrant ssh`.
-   - Run the Ansible playbook: `ansible-playbook -i ansible/hosts ansible/Playbook.yml`.
 
 ## Testing the Application
 
-Once the setup is complete, the application should be accessible via the browser:
+Once the setup is complete, the application should be accessible via the browser.
+Open your browser and navigate to http://localhost:3000 to access the frontend of the e-commerce application.
 
-- MongoDB should be running and accessible on port `27017`.
-- The backend should be running on port `3000`.
-- The frontend should be running on port `3001`.
 
 You can test the functionality of the application by adding products through the provided form.
 
 ## Conclusion
 
 This project demonstrates the use of Vagrant and Ansible to automate the provisioning and configuration of a development environment for a web application. By leveraging these tools, we ensure a consistent and repeatable setup process, reducing the potential for errors and saving time on manual configurations.
-
----
-
-This README provides a comprehensive overview of the project, detailing the use of Vagrant and Ansible for automated configuration management.
