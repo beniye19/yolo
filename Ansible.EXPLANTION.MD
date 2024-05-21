@@ -9,14 +9,18 @@ This project aims to automate the provisioning and configuration of an Ubuntu se
 ### Environment Setup
 
 1. **Vagrant Provisioned Server**
-   -A VM named "web" is created using the Ubuntu Bionic base image.
+
+-A VM named "web" is created using the Ubuntu Bionic base image.
 It is assigned a private IP address of 192.168.56.101.
 Port 3000 on the VM is forwarded to port 3000 on the host machine, allowing you to access the web application via localhost:3000.
-    -A VM named "db" is created using the Ubuntu Bionic base image.
+
+A VM named "db" is created using the Ubuntu Bionic base image.
 It is assigned a private IP address of 192.168.56.102
 
 2. **Ansible Playbook**
-   -After the VMs are created, Vagrant uses Ansible to provision them according to the tasks defined in ansible/Playbook.yml.
+
+After the VMs are created, Vagrant uses Ansible to provision them according to the tasks defined in ansible/Playbook.yml.
+
 The inventory file ansible/hosts is used to determine which VM performs which role (e.g., web server, database server).
 
 ### Ansible Configuration
