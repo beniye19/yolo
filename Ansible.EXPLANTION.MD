@@ -160,3 +160,183 @@ The playbook’s sequential execution ensures a smooth deployment process by set
 
 The data should persist because the Docker Compose configuration includes a volume for MongoDB. Docker volumes ensure that data is stored outside of the container's filesystem, meaning it remains intact even if the container is stopped, removed, or recreated.
 When you restart the MongoDB container, it will use the same volume `(yolo_mongodb_data)`, and all the data previously stored in MongoDB will still be available.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here's a suitable `README.md` explaining the Ansible and Vagrant configuration management for the project:
+
+---
+
+# YOLO E-commerce Application - Configuration Management
+
+## Introduction
+
+This project aims to automate the provisioning and configuration of an Ubuntu server using Vagrant and Ansible. The setup ensures that the e-commerce web application, which includes a MongoDB backend, a Node.js backend, and a React frontend, is fully operational with minimal manual intervention.
+
+## Objectives
+
+The project is divided into two main stages:
+
+1. **Stage 1: Ansible Instrumentation**
+2. **Stage 2: Automated Provisioning and Configuration**
+
+## Stage 1: Ansible Instrumentation
+
+### Environment Setup
+
+1. **Vagrant Provisioned Server**
+   - We will use Vagrant to provision a virtual machine running the latest Ubuntu server.
+   - The Vagrant box used is `geerlingguy/ubuntu2004`, a lightweight and widely used Ubuntu 20.04 box.
+
+2. **Ansible Playbook**
+   - Ansible is used to automate the configuration of the server.
+   - The playbook includes tasks for setting up Docker containers for each component of the application.
+
+### Ansible Configuration
+
+#### Directory Structure
+
+```
+yolo/
+├── ansible/
+│   ├── roles/
+│   │   ├── mongodb/
+│   │   │   └── tasks/
+│   │   │       └── main.yml
+│   │   ├── frontend/
+│   │   │   └── tasks/
+│   │   │       └── main.yml
+│   │   └── backend/
+│   │       └── tasks/
+│   │           └── main.yml
+│   ├── group_vars/
+│   │   └── all.yml
+│   ├── hosts
+│   └── Playbook.yml
+├── Vagrantfile
+├── README.MD
+```
+
+#### Vagrantfile
+
+The `Vagrantfile` is used to configure and provision the virtual machine:
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "geerlingguy/ubuntu2004"
+
+  config.vm.network "private_network", ip: "192.168.56.10"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = 2
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y python3 python3-pip
+    pip3 install ansible
+  SHELL
+end
+```
+
+#### Ansible Playbook
+
+The `Playbook.yml` defines the tasks to configure the server and deploy the application:
+
+```yaml
+---
+- name: Setup and deploy YOLO e-commerce application
+  hosts: all
+  become: yes
+  vars_files:
+    - group_vars/all.yml
+
+  roles:
+    - mongodb
+    - backend
+    - frontend
+```
+
+#### Roles
+
+Each role is responsible for configuring a specific part of the application:
+
+1. **MongoDB Role**
+   - Installs and configures MongoDB.
+
+2. **Backend Role**
+   - Sets up the Node.js backend.
+
+3. **Frontend Role**
+   - Configures the React frontend.
+
+### group_vars
+
+The `group_vars/all.yml` file defines variables used in the playbook:
+
+```yaml
+mongodb_port: 27017
+backend_port: 3000
+frontend_port: 3001
+```
+
+### Task Files
+
+Each role has a `main.yml` file that lists the tasks to be executed. For example, the `mongodb/main.yml`:
+
+```yaml
+---
+- name: Install MongoDB
+  apt:
+    name: mongodb
+    state: present
+
+- name: Start MongoDB
+  service:
+    name: mongodb
+    state: started
+    enabled: yes
+```
+
+### Running the Setup
+
+1. **Provision the VM:**
+   - Run `vagrant up` to provision the VM and install Ansible.
+
+2. **Execute Ansible Playbook:**
+   - SSH into the VM using `vagrant ssh`.
+   - Run the Ansible playbook: `ansible-playbook -i ansible/hosts ansible/Playbook.yml`.
+
+## Testing the Application
+
+Once the setup is complete, the application should be accessible via the browser:
+
+- MongoDB should be running and accessible on port `27017`.
+- The backend should be running on port `3000`.
+- The frontend should be running on port `3001`.
+
+You can test the functionality of the application by adding products through the provided form.
+
+## Conclusion
+
+This project demonstrates the use of Vagrant and Ansible to automate the provisioning and configuration of a development environment for a web application. By leveraging these tools, we ensure a consistent and repeatable setup process, reducing the potential for errors and saving time on manual configurations.
+
+---
+
+This README provides a comprehensive overview of the project, detailing the use of Vagrant and Ansible for automated configuration management.
