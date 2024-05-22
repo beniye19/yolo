@@ -168,7 +168,7 @@ Each role has a `main.yml` file that lists the tasks to be executed. For example
 ### Running the Setup
 
    **Provision the VM:**
-- Run vagrant up in your project root directory. This command will start the Vagrant virtual machine and automatically run the Ansible playbook to configure the server.
+- Run `vagrant up` in your project root directory. This command will start the Vagrant virtual machine and automatically run the Ansible playbook to configure the server.
 
 
 ## Testing the Application
