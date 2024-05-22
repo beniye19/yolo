@@ -298,5 +298,10 @@ The playbook’s sequential execution ensures a smooth deployment process by set
 
 # DATA PERSISTENCE
 
-The data should persist because the Docker Compose configuration includes a volume for MongoDB. Docker volumes ensure that data is stored outside of the container's filesystem, meaning it remains intact even if the container is stopped, removed, or recreated.
-When you restart the MongoDB container, it will use the same volume `(yolo_mongodb_data)`, and all the data previously stored in MongoDB will still be available.
+Data persistence in this project is achieved through two main mechanisms: Docker volumes and synced directories.
+
+First, the Docker Compose configuration includes a volume for MongoDB. Docker volumes store data outside of the container's filesystem, ensuring that data remains intact even if the container is stopped, removed, or recreated. When you restart the MongoDB container, it will use the same volume `(yolo_mongodb_data)`, preserving all previously stored data.
+
+Second, data persistence is further reinforced using synced directories configured in the Vagrantfile. These directories allow seamless file sharing between the host machine and the VMs. For instance, `./web_data` on the host is synced with `/var/www/web_data` in the `web` VM, and `./db_data` on the host is synced with `/var/lib/db_data` in the `db` VM. This ensures that any changes made in these directories on either the host or the VMs are automatically reflected in both places.
+
+The primary benefit of using synced directories is that data persists across VM lifecycles. Even if the VMs are destroyed and recreated, the data stored in the synced directories remains intact on the host machine. This approach safeguards important data and simplifies backup processes.
