@@ -2,3 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yolo-backend
+spec:
+  selector:
+    matchLabels:
+      app: yolo-backend
