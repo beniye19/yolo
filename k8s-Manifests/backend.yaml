@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: yolo-backend
-        image: beniye/yolo-web-backend
+        image: beniye/yolo-web-backend:v1.0.0
         resources:
           limits:
             memory: "128Mi"
