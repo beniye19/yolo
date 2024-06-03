@@ -22,3 +22,7 @@ Reasoning:
 Persistent Volume (PV) and Persistent Volume Claim (PVC): PVs and PVCs are used to manage persistent storage in Kubernetes. PVs are storage resources in the cluster, and PVCs are requests for those resources.
 GKE Specific: On GKE, we use Google Persistent Disks as the backend for our PVs. This ensures high availability and durability of the data.
 Persistent storage is crucial for stateful applications that need to retain data across pod restarts and rescheduling. For databases and similar applications, we created PVs and PVCs backed by Google Persistent Disks to ensure data persistence. For stateless applications, we did not configure persistent storage since their data does not need to persist beyond the lifecycle of a pod.
+
+4. Git Workflow Used to Achieve the Task
+Reasoning:
+
