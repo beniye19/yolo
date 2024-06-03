@@ -68,3 +68,13 @@ This practice helps in managing and deploying the correct versions of images acr
 - **Descriptive Names:** Using descriptive names for images and containers to indicate their purpose and version clearly.
 
 This approach enhances maintainability and simplifies the management of multiple images and containers across various stages of the deployment pipeline.
+
+### Application Access Information
+
+- **Frontend**: Visit [http://34.138.116.228:8080](http://34.138.116.228:8080) in your web browser.
+- **Backend**: Access [http://34.23.67.236:5000](http://34.23.67.236:5000) to interact with your backend services.
+
+You can use these URLs to access the frontend and backend of your application respectively. 
+
+Please note that the live URLs are not currently accessible. This could be due to several factors, including misconfiguration of services, firewall rules blocking external access, or issues with network connectivity. Further troubleshooting is needed to determine the exact cause and resolve the issue.
+
