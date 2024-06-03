@@ -43,3 +43,5 @@ Describe Pods: Using kubectl describe pods to get detailed information about the
 Events: Monitoring cluster events with kubectl get events to detect issues during the deployment process.
 Port-Forwarding: Using kubectl port-forward to access the application locally and diagnose issues without exposing it to the internet.
 
+6. Good Practices
+Docker Image Tag Naming Standards
