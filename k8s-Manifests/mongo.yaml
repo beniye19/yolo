@@ -10,3 +10,11 @@ spec:
     metadata:
       labels:
         app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:7-jammy
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
