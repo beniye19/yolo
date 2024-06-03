@@ -2,3 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
