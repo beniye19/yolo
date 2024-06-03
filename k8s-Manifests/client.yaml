@@ -29,7 +29,7 @@ kind: Service
 metadata:
   name: yolo-client-service
 spec:
-  type: LoadBalancer  # Specifies the type of service as LoadBalancer
+  type: LoadBalancer  # Specifies the type of service as LoadBa
   selector:
     app: yolo-client
   ports:
