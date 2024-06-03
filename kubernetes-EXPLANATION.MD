@@ -43,5 +43,23 @@ Describe Pods: Using kubectl describe pods to get detailed information about the
 Events: Monitoring cluster events with kubectl get events to detect issues during the deployment process.
 Port-Forwarding: Using kubectl port-forward to access the application locally and diagnose issues without exposing it to the internet.
 
-6. Good Practices
 Docker Image Tag Naming Standards
+Reasoning:
+
+Tagging: I followed a consistent tagging strategy to identify Docker images easily. Tags include:
+Semantic Versioning: Tags like v1.0.0, v1.1.0, etc., to indicate versions.
+Environment-Specific Tags: Tags like latest, staging, production to denote different deployment stages.
+Commit Hashes: Including short commit hashes in tags for traceability, e.g., v1.0.0-abc123.
+This practice helps in managing and deploying the correct versions of images across different environments, ensuring that each deployment uses the intended version of the image.
+
+Personalization of Images and Containers
+Reasoning:
+
+Custom Labels and Annotations: Adding metadata like labels and annotations to Docker images and Kubernetes objects for easy identification and management.
+Descriptive Names: Using descriptive names for images and containers to indicate their purpose and version clearly.
+This approach enhances maintainability and simplifies the management of multiple images and containers across various stages of the deployment pipeline.
+
+
+
+
+
