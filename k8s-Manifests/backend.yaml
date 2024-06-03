@@ -13,3 +13,4 @@ spec:
     spec:
       containers:
       - name: yolo-backend
+        image: beniye/yolo-web-backend:v1.0.0
