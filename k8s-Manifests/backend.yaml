@@ -33,7 +33,7 @@ kind: Service
 metadata:
   name: yolo-backend-service
 spec:
-  type: LoadBalancer
+  type: LoadBalancer # This line specifies the type of service as LoadBalancer
   selector:
     app: yolo-backend
   ports:
