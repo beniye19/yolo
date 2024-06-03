@@ -32,3 +32,7 @@ Clone: Developers clone the fork to their local machine for development.
 Feature Branches: Develop new features or bug fixes in separate branches within the forked repository.
 Pull Requests: Once the changes are complete and tested, developers create a pull request to merge the changes back into the main repository.
 This workflow allows multiple developers to work independently without interfering with each other's work, enabling easy collaboration through pull requests and code reviews.
+
+5. Successful Running of Applications from the Link Provided in the GitHub Repository's README.md
+Reasoning:
+
