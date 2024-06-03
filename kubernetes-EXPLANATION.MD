@@ -36,8 +36,8 @@ This workflow allows multiple developers to work independently without interferi
 5. Successful Running of Applications from the Link Provided in the GitHub Repository's README.md
 Reasoning:
 
-Validation: After deployment, we verified the application by accessing the provided URL to ensure it was running correctly.
-Debugging Measures: If the application did not run successfully, we used several debugging measures:
+Validation: After deployment, I verified the application by accessing the provided URL to ensure it was running correctly.
+Debugging Measures: If the application did not run successfully, I used several debugging measures:
 Logs: Checking the logs of the pods using kubectl logs to identify errors.
 Describe Pods: Using kubectl describe pods to get detailed information about the pod's state.
 Events: Monitoring cluster events with kubectl get events to detect issues during the deployment process.
