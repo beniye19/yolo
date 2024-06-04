@@ -78,3 +78,6 @@ You can use these URLs to access the frontend and backend of your application re
 
 Please note that the live URLs are not currently accessible. This could be due to several factors, including misconfiguration of services, firewall rules blocking external access, or issues with network connectivity. Further troubleshooting is needed to determine the exact cause and resolve the issue.
 
+### Ensuring Data Persistence with Persistent Volumes
+
+The use of persistent volumes was achieved by defining a `PersistentVolume` (PV) and a `PersistentVolumeClaim` (PVC) in the Kubernetes configuration. The MongoDB deployment was then configured to mount this persistent storage at the `/data/db` path. This setup ensures that data stored in the MongoDB database is retained on the persistent volume, even if the MongoDB pod is deleted and recreated, thus preventing the loss of items added to the cart.
