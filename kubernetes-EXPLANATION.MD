@@ -69,7 +69,7 @@ This practice helps in managing and deploying the correct versions of images acr
 
 This approach enhances maintainability and simplifies the management of multiple images and containers across various stages of the deployment pipeline.
 
-### Application Access
+### 7. Application Access
 
 - **Frontend**: Visit [http://34.138.116.228:8080](http://34.138.116.228:8080) in your web browser.
 - **Backend**: Access [http://34.23.67.236:5000](http://34.23.67.236:5000) to interact with your backend services.
@@ -79,6 +79,6 @@ These URLs are intended for accessing the frontend and backend of my application
 Please note that the live URLs are not currently accessible. This could be due to several factors, including misconfiguration of services, firewall rules blocking external access, or issues with network connectivity. Further troubleshooting is needed to determine the exact cause and resolve the issue.
 
 
-### Ensuring Data Persistence with Persistent Volumes
+### 8. Ensuring Data Persistence with Persistent Volumes
 
 The use of persistent volumes was achieved by defining a `PersistentVolume` (PV) and a `PersistentVolumeClaim` (PVC) in the Kubernetes configuration. The MongoDB deployment was then configured to mount this persistent storage at the `/data/db` path. This setup ensures that data stored in the MongoDB database is retained on the persistent volume, even if the MongoDB pod is deleted and recreated, thus preventing the loss of items added to the cart.
